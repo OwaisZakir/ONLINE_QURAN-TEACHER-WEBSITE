@@ -30,7 +30,7 @@ const ServiceCard = ({ icon: Icon, title, titleUrdu, description, features, inde
   const hoverVariants = {
     hover: {
       y: -12,
-      boxShadow: "0 0 40px rgba(6, 182, 212, 0.3), 0 0 80px rgba(139, 92, 246, 0.2)",
+      boxShadow: "0 0 40px rgba(16, 164, 84, 0.3), 0 0 80px rgba(212, 166, 90, 0.2)",
       transition: { duration: 0.3 },
     },
   };
@@ -53,10 +53,10 @@ const ServiceCard = ({ icon: Icon, title, titleUrdu, description, features, inde
       className="group h-full"
     >
       <motion.div variants={hoverVariants} className="h-full">
-        <Card className="relative h-full overflow-hidden glass border-cyan-500/30 group-hover:border-cyan-400/60 transition-all duration-300">
+        <Card className="relative h-full overflow-hidden glass border-emerald-500/30 group-hover:border-emerald-400/60 transition-all duration-300">
           {/* Gradient overlay on hover */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-violet-500/5 opacity-0 group-hover:opacity-100"
+            className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100"
             whileHover={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
             style={{ zIndex: 0 }}
@@ -66,13 +66,13 @@ const ServiceCard = ({ icon: Icon, title, titleUrdu, description, features, inde
             <motion.div
               variants={iconVariants}
               whileHover="hover"
-              className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500/20 to-violet-500/20 text-cyan-400 shadow-md group-hover:from-cyan-500 group-hover:to-violet-500 group-hover:text-white transition-all duration-300"
+              className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/20 to-amber-500/20 text-emerald-400 shadow-md group-hover:from-emerald-500 group-hover:to-amber-500 group-hover:text-white transition-all duration-300"
             >
               <Icon className="h-7 w-7" />
             </motion.div>
 
             <CardTitle className="text-xl font-bold text-white">{title}</CardTitle>
-            <CardDescription className="font-urdu text-base text-cyan-400/80">
+            <CardDescription className="font-urdu text-base text-emerald-400/80">
               {titleUrdu}
             </CardDescription>
           </CardHeader>
@@ -90,7 +90,7 @@ const ServiceCard = ({ icon: Icon, title, titleUrdu, description, features, inde
                   className="flex items-start gap-3 text-sm"
                 >
                   <motion.span
-                    className="mt-1.5 h-2 w-2 rounded-full bg-gradient-to-r from-cyan-400 to-violet-400 flex-shrink-0"
+                    className="mt-1.5 h-2 w-2 rounded-full bg-gradient-to-r from-emerald-400 to-amber-400 flex-shrink-0"
                     whileHover={{ scale: 1.5 }}
                   />
                   <span className="text-white/70">{feature}</span>
@@ -104,7 +104,7 @@ const ServiceCard = ({ icon: Icon, title, titleUrdu, description, features, inde
             >
               <Button
                 asChild
-                className="w-full bg-gradient-to-r from-cyan-500/80 to-violet-500/80 hover:from-cyan-500 hover:to-violet-500 text-white font-semibold border-0 transition-all duration-300"
+                className="w-full bg-gradient-to-r from-emerald-500/80 to-amber-500/80 hover:from-emerald-500 hover:to-amber-500 text-white font-semibold border-0 transition-all duration-300"
               >
                 <Link to="/courses">
                   Learn More
