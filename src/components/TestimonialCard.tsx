@@ -29,7 +29,7 @@ const TestimonialCard = ({ name, role, content, rating, avatar, index }: Testimo
   const hoverVariants = {
     hover: {
       y: -8,
-      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
+      boxShadow: "0 0 40px rgba(6, 182, 212, 0.3), 0 0 80px rgba(139, 92, 246, 0.2)",
       transition: { duration: 0.3 },
     },
   };
@@ -44,23 +44,23 @@ const TestimonialCard = ({ name, role, content, rating, avatar, index }: Testimo
       className="group"
     >
       <motion.div variants={hoverVariants} className="h-full">
-        <Card className="relative h-full overflow-hidden border-2 border-border transition-all duration-300 hover:border-primary/50">
-          {/* Animated gradient background on hover */}
+        <Card className="relative h-full overflow-hidden glass border-cyan-500/30 group-hover:border-cyan-400/60 transition-all duration-300">
+          {/* Gradient overlay on hover */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/0 opacity-0"
+            className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-violet-500/5 opacity-0"
             whileHover={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            style={{ zIndex: -1 }}
+            style={{ zIndex: 0 }}
           />
 
-          <CardContent className="space-y-5 p-6 h-full flex flex-col">
+          <CardContent className="relative z-10 space-y-5 p-6 h-full flex flex-col">
             {/* Quote Icon */}
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.15 + 0.2, duration: 0.5 }}
             >
-              <Quote className="h-8 w-8 text-primary/30" />
+              <Quote className="h-8 w-8 text-cyan-500/40" />
             </motion.div>
 
             {/* Rating */}
@@ -78,8 +78,8 @@ const TestimonialCard = ({ name, role, content, rating, avatar, index }: Testimo
                   <Star
                     className={`h-4 w-4 transition-colors duration-300 ${
                       i < rating
-                        ? "fill-amber-400 text-amber-400"
-                        : "fill-muted text-muted"
+                        ? "fill-yellow-400 text-yellow-400"
+                        : "fill-white/20 text-white/20"
                     }`}
                   />
                 </motion.div>
@@ -91,14 +91,14 @@ const TestimonialCard = ({ name, role, content, rating, avatar, index }: Testimo
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: index * 0.15 + 0.15, duration: 0.6 }}
-              className="text-sm italic text-muted-foreground leading-relaxed flex-grow"
+              className="text-sm italic text-white/80 leading-relaxed flex-grow"
             >
               "{content}"
             </motion.p>
 
             {/* Divider */}
             <motion.div
-              className="border-t border-border"
+              className="border-t border-cyan-500/20"
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               transition={{ delay: index * 0.15 + 0.2, duration: 0.5 }}
@@ -113,16 +113,16 @@ const TestimonialCard = ({ name, role, content, rating, avatar, index }: Testimo
               className="flex items-center gap-3 pt-2"
             >
               <motion.div whileHover={{ scale: 1.1 }}>
-                <Avatar className="h-10 w-10 border-2 border-primary/20 group-hover:border-primary/50 transition-colors duration-300">
+                <Avatar className="h-10 w-10 border-2 border-cyan-500/40 group-hover:border-cyan-500/80 transition-colors duration-300">
                   <AvatarImage src={avatar} alt={name} />
-                  <AvatarFallback className="bg-primary text-primary-foreground font-semibold">
+                  <AvatarFallback className="bg-gradient-to-br from-cyan-500/40 to-violet-500/40 text-white font-semibold">
                     {name.charAt(0)}
                   </AvatarFallback>
                 </Avatar>
               </motion.div>
               <div>
-                <p className="text-sm font-bold text-foreground">{name}</p>
-                <p className="text-xs text-muted-foreground">{role}</p>
+                <p className="text-sm font-bold text-white">{name}</p>
+                <p className="text-xs text-white/60">{role}</p>
               </div>
             </motion.div>
           </CardContent>
