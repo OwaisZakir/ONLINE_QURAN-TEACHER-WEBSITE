@@ -1,140 +1,218 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Mail, Phone, MessageCircle } from "lucide-react";
+import { BookOpen, Mail, Phone, MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const linkVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
+  };
+
   return (
-    <footer className="border-t border-border bg-muted/30 pattern-islamic">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="relative border-t border-cyan-500/20 bg-gradient-to-b from-background via-background to-violet-950/20">
+      <div className="container mx-auto px-4 py-16">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid gap-12 md:grid-cols-2 lg:grid-cols-4"
+        >
           {/* Brand */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <BookOpen className="h-6 w-6 text-primary-foreground" />
+          <motion.div variants={itemVariants} className="space-y-4">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+              className="flex items-center gap-2 w-fit"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-violet-600 text-white shadow-lg hover-glow-cyan">
+                <BookOpen className="h-6 w-6" />
               </div>
               <div className="flex flex-col">
-                <span className="text-sm font-bold">Qari M. Nadeem</span>
-                <span className="text-xs text-muted-foreground">Quran Academy</span>
+                <span className="text-sm font-bold text-gradient-primary">Qari M. Nadeem</span>
+                <span className="text-xs text-cyan-400/80">Quran Academy</span>
               </div>
-            </div>
-            <p className="text-sm text-muted-foreground">
+            </motion.div>
+            <p className="font-urdu text-sm text-white/70">
               قاری محمد ندیم مجید
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-white/60 leading-relaxed">
               Personalized one-to-one Quran classes for students worldwide
             </p>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground">Quick Links</h3>
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wide">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <Link to="/about" className="text-sm text-muted-foreground transition-smooth hover:text-primary">
-                  About Qari Sahib
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses" className="text-sm text-muted-foreground transition-smooth hover:text-primary">
-                  Our Courses
-                </Link>
-              </li>
-              <li>
-                <Link to="/pricing" className="text-sm text-muted-foreground transition-smooth hover:text-primary">
-                  Pricing Plans
-                </Link>
-              </li>
-              <li>
-                <Link to="/testimonials" className="text-sm text-muted-foreground transition-smooth hover:text-primary">
-                  Success Stories
-                </Link>
-              </li>
-              <li>
-                <Link to="/faq" className="text-sm text-muted-foreground transition-smooth hover:text-primary">
-                  FAQ
-                </Link>
-              </li>
+              {[
+                { name: "About Qari Sahib", href: "/about" },
+                { name: "Our Courses", href: "/courses" },
+                { name: "Pricing Plans", href: "/pricing" },
+                { name: "Success Stories", href: "/testimonials" },
+                { name: "FAQ", href: "/faq" },
+              ].map((link, index) => (
+                <motion.li
+                  key={link.href}
+                  variants={linkVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  transition={{ delay: index * 0.05 }}
+                  viewport={{ once: true }}
+                >
+                  <Link
+                    to={link.href}
+                    className="group flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-cyan-400"
+                  >
+                    <span>{link.name}</span>
+                    <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity transform -translate-x-2 group-hover:translate-x-0" />
+                  </Link>
+                </motion.li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Courses */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground">Our Services</h3>
+          {/* Services */}
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wide">Our Services</h3>
             <ul className="space-y-2">
-              <li className="text-sm text-muted-foreground">Quran Nazra</li>
-              <li className="text-sm text-muted-foreground">Hifz-ul-Quran</li>
-              <li className="text-sm text-muted-foreground">Tajweed Mastery</li>
-              <li className="text-sm text-muted-foreground">Norani Qaida</li>
-              <li className="text-sm text-muted-foreground">Namaz & Duain</li>
-              <li className="text-sm text-muted-foreground">Kids & Adults Classes</li>
+              {[
+                "Quran Nazra",
+                "Hifz-ul-Quran",
+                "Tajweed Mastery",
+                "Norani Qaida",
+                "Namaz & Duain",
+                "Kids & Adults Classes",
+              ].map((service, index) => (
+                <motion.li
+                  key={service}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  viewport={{ once: true }}
+                  className="text-sm text-white/70 hover:text-cyan-400 transition-colors cursor-default"
+                >
+                  {service}
+                </motion.li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground">Get in Touch</h3>
+          <motion.div variants={itemVariants} className="space-y-4">
+            <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wide">Get in Touch</h3>
             <ul className="space-y-3">
-              <li>
-                <a
-                  href="mailto:info@qarinadeem.com"
-                  className="flex items-center gap-2 text-sm text-muted-foreground transition-smooth hover:text-primary"
+              {[
+                {
+                  icon: Mail,
+                  label: "info@qarinadeem.com",
+                  href: "mailto:info@qarinadeem.com",
+                },
+                {
+                  icon: Phone,
+                  label: "+1 (234) 567-890",
+                  href: "tel:+1234567890",
+                },
+                {
+                  icon: MessageCircle,
+                  label: "WhatsApp Chat",
+                  href: "https://wa.me/1234567890",
+                },
+              ].map((contact, index) => (
+                <motion.li
+                  key={contact.label}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  viewport={{ once: true }}
                 >
-                  <Mail className="h-4 w-4" />
-                  info@qarinadeem.com
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+1234567890"
-                  className="flex items-center gap-2 text-sm text-muted-foreground transition-smooth hover:text-primary"
-                >
-                  <Phone className="h-4 w-4" />
-                  +1 (234) 567-890
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/1234567890"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-muted-foreground transition-smooth hover:text-primary"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  WhatsApp Chat
-                </a>
-              </li>
+                  <a
+                    href={contact.href}
+                    target={contact.href.startsWith("http") ? "_blank" : undefined}
+                    rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-cyan-400 group"
+                  >
+                    <contact.icon className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                    {contact.label}
+                  </a>
+                </motion.li>
+              ))}
             </ul>
-            <Button asChild variant="hero" size="sm" className="w-full">
-              <Link to="/booking">Book Free Trial</Link>
-            </Button>
-          </div>
-        </div>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+              className="pt-2"
+            >
+              <Button
+                asChild
+                className="w-full bg-gradient-to-r from-cyan-500 to-violet-600 hover:from-cyan-400 hover:to-violet-500 text-white font-bold shadow-neon"
+              >
+                <Link to="/booking">Book Free Trial</Link>
+              </Button>
+            </motion.div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 border-t border-border pt-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="mt-12 border-t border-cyan-500/20 pt-8"
+        >
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-white/60">
               © {currentYear} Qari Muhammad Nadeem Majeed. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <Link
-                to="/privacy"
-                className="text-sm text-muted-foreground transition-smooth hover:text-primary"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                to="/terms"
-                className="text-sm text-muted-foreground transition-smooth hover:text-primary"
-              >
-                Terms of Service
-              </Link>
+              {[
+                { name: "Privacy Policy", href: "/privacy" },
+                { name: "Terms of Service", href: "/terms" },
+              ].map((link) => (
+                <motion.div
+                  key={link.href}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Link
+                    to={link.href}
+                    className="text-sm text-white/70 transition-colors hover:text-cyan-400"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
