@@ -54,7 +54,7 @@ const Header = () => {
       ref={headerRef}
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "glass shadow-neon border-b border-cyan-500/20"
+          ? "glass shadow-neon border-b border-emerald-500/20"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -70,15 +70,15 @@ const Header = () => {
             <motion.div
               whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-cyan-500 shadow-lg hover-glow-cyan"
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-500 shadow-lg hover-glow-emerald"
             >
               <BookOpen className="h-6 w-6 text-white" />
             </motion.div>
             <div className="flex flex-col">
-              <span className="text-sm font-bold bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="text-sm font-bold bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">
                 Qari M. Nadeem
               </span>
-              <span className="text-xs text-cyan-400/80">Quran Academy</span>
+              <span className="text-xs text-emerald-400/80">Quran Academy</span>
             </div>
           </Link>
         </motion.div>
@@ -94,11 +94,11 @@ const Header = () => {
             <motion.div key={link.href} variants={itemVariants}>
               <Link
                 to={link.href}
-                className="relative text-sm font-medium text-white/80 transition-colors hover:text-cyan-400 px-3 py-2 group"
+                className="relative text-sm font-medium text-white/80 transition-colors hover:text-emerald-400 px-3 py-2 group"
               >
                 {link.name}
                 <motion.div
-                  className="absolute bottom-0 left-3 h-0.5 bg-gradient-to-r from-violet-500 to-cyan-500"
+                  className="absolute bottom-0 left-3 h-0.5 bg-gradient-to-r from-emerald-500 to-amber-500"
                   whileHover={{ width: "calc(100% - 24px)" }}
                   initial={{ width: 0 }}
                   transition={{ duration: 0.3 }}
@@ -121,7 +121,7 @@ const Header = () => {
               asChild
               variant="outline"
               size="sm"
-              className="border-cyan-500/40 text-white hover:border-cyan-400 hover:bg-cyan-500/10 backdrop-blur"
+              className="border-emerald-500/40 text-white hover:border-emerald-400 hover:bg-emerald-500/10 backdrop-blur"
             >
               <Link to="/student-portal">Student Portal</Link>
             </Button>
@@ -130,7 +130,7 @@ const Header = () => {
             <Button
               asChild
               size="sm"
-              className="bg-gradient-to-r from-violet-600 to-cyan-500 hover:shadow-neon text-white font-semibold"
+              className="bg-gradient-to-r from-emerald-600 to-emerald-500 hover:shadow-neon text-white font-semibold"
             >
               <Link to="/booking">Book Free Trial</Link>
             </Button>
@@ -146,9 +146,9 @@ const Header = () => {
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? (
-            <X className="h-6 w-6 text-cyan-400" />
+            <X className="h-6 w-6 text-emerald-400" />
           ) : (
-            <Menu className="h-6 w-6 text-cyan-400" />
+            <Menu className="h-6 w-6 text-emerald-400" />
           )}
         </motion.button>
       </nav>
@@ -161,7 +161,7 @@ const Header = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="glass border-t border-cyan-500/20 md:hidden"
+            className="glass border-t border-emerald-500/20 md:hidden"
           >
             <div className="container mx-auto flex flex-col gap-4 px-4 py-6">
               {navLinks.map((link, index) => (
@@ -173,7 +173,7 @@ const Header = () => {
                 >
                   <Link
                     to={link.href}
-                    className="text-sm font-medium text-white/80 transition-colors hover:text-cyan-400"
+                    className="text-sm font-medium text-white/80 transition-colors hover:text-emerald-400"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.name}
@@ -184,7 +184,7 @@ const Header = () => {
                 <Button
                   asChild
                   variant="outline"
-                  className="w-full border-cyan-500/40 text-white hover:border-cyan-400"
+                  className="w-full border-emerald-500/40 text-white hover:border-emerald-400"
                 >
                   <Link to="/student-portal" onClick={() => setMobileMenuOpen(false)}>
                     Student Portal
@@ -192,7 +192,7 @@ const Header = () => {
                 </Button>
                 <Button
                   asChild
-                  className="w-full bg-gradient-to-r from-violet-600 to-cyan-500 text-white"
+                  className="w-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white"
                 >
                   <Link to="/booking" onClick={() => setMobileMenuOpen(false)}>
                     Book Free Trial
