@@ -36,7 +36,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative border-t border-border bg-gradient-to-b from-background to-muted/50">
+    <footer className="relative border-t border-cyan-500/20 bg-gradient-to-b from-background via-background to-violet-950/20">
       <div className="container mx-auto px-4 py-16">
         <motion.div
           variants={containerVariants}
@@ -52,25 +52,25 @@ const Footer = () => {
               transition={{ duration: 0.3 }}
               className="flex items-center gap-2 w-fit"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/80 text-primary-foreground shadow-lg">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-violet-600 text-white shadow-lg hover-glow-cyan">
                 <BookOpen className="h-6 w-6" />
               </div>
               <div className="flex flex-col">
-                <span className="text-sm font-bold text-foreground">Qari M. Nadeem</span>
-                <span className="text-xs text-muted-foreground">Quran Academy</span>
+                <span className="text-sm font-bold text-gradient-primary">Qari M. Nadeem</span>
+                <span className="text-xs text-cyan-400/80">Quran Academy</span>
               </div>
             </motion.div>
-            <p className="font-urdu text-sm text-muted-foreground">
+            <p className="font-urdu text-sm text-white/70">
               قاری محمد ندیم مجید
             </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm text-white/60 leading-relaxed">
               Personalized one-to-one Quran classes for students worldwide
             </p>
           </motion.div>
 
           {/* Quick Links */}
           <motion.div variants={itemVariants} className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide">Quick Links</h3>
+            <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wide">Quick Links</h3>
             <ul className="space-y-2">
               {[
                 { name: "About Qari Sahib", href: "/about" },
@@ -89,7 +89,7 @@ const Footer = () => {
                 >
                   <Link
                     to={link.href}
-                    className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="group flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-cyan-400"
                   >
                     <span>{link.name}</span>
                     <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity transform -translate-x-2 group-hover:translate-x-0" />
@@ -101,7 +101,7 @@ const Footer = () => {
 
           {/* Services */}
           <motion.div variants={itemVariants} className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide">Our Services</h3>
+            <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wide">Our Services</h3>
             <ul className="space-y-2">
               {[
                 "Quran Nazra",
@@ -117,7 +117,7 @@ const Footer = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-default"
+                  className="text-sm text-white/70 hover:text-cyan-400 transition-colors cursor-default"
                 >
                   {service}
                 </motion.li>
@@ -127,7 +127,7 @@ const Footer = () => {
 
           {/* Contact */}
           <motion.div variants={itemVariants} className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground uppercase tracking-wide">Get in Touch</h3>
+            <h3 className="text-sm font-semibold text-cyan-400 uppercase tracking-wide">Get in Touch</h3>
             <ul className="space-y-3">
               {[
                 {
@@ -157,7 +157,7 @@ const Footer = () => {
                     href={contact.href}
                     target={contact.href.startsWith("http") ? "_blank" : undefined}
                     rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary group"
+                    className="flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-cyan-400 group"
                   >
                     <contact.icon className="h-4 w-4 group-hover:scale-110 transition-transform" />
                     {contact.label}
@@ -170,7 +170,10 @@ const Footer = () => {
               transition={{ duration: 0.2 }}
               className="pt-2"
             >
-              <Button asChild className="w-full bg-gradient-to-r from-primary to-primary/80 hover:shadow-lg">
+              <Button
+                asChild
+                className="w-full bg-gradient-to-r from-cyan-500 to-violet-600 hover:from-cyan-400 hover:to-violet-500 text-white font-bold shadow-neon"
+              >
                 <Link to="/booking">Book Free Trial</Link>
               </Button>
             </motion.div>
@@ -183,10 +186,10 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="mt-12 border-t border-border/50 pt-8"
+          className="mt-12 border-t border-cyan-500/20 pt-8"
         >
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-white/60">
               © {currentYear} Qari Muhammad Nadeem Majeed. All rights reserved.
             </p>
             <div className="flex gap-6">
@@ -201,7 +204,7 @@ const Footer = () => {
                 >
                   <Link
                     to={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="text-sm text-white/70 transition-colors hover:text-cyan-400"
                   >
                     {link.name}
                   </Link>
