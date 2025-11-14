@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { BookOpen, GraduationCap, Users, Star, Clock, Globe, Zap, Award, CheckCircle2 } from "lucide-react";
+import { BookOpen, GraduationCap, Users, Star, Clock, Globe, Zap, Award, CheckCircle2, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -20,7 +20,6 @@ const Index = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Hero title animation with GSAP
     gsap.fromTo(
       ".hero-title",
       { opacity: 0, y: 40, scale: 0.95 },
@@ -45,7 +44,6 @@ const Index = () => {
       { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.8 }
     );
 
-    // Parallax effect on hero
     gsap.to(".hero-image", {
       yPercent: -30,
       scrollTrigger: {
@@ -56,7 +54,6 @@ const Index = () => {
       },
     });
 
-    // Stats counter animation
     gsap.utils.toArray<HTMLElement>(".stat-item").forEach((stat, index) => {
       gsap.fromTo(
         stat,
@@ -75,7 +72,6 @@ const Index = () => {
       );
     });
 
-    // Services stagger animation
     gsap.utils.toArray<HTMLElement>(".service-item").forEach((service, index) => {
       gsap.fromTo(
         service,
@@ -110,7 +106,7 @@ const Index = () => {
     {
       icon: GraduationCap,
       title: "Hifz-ul-Quran",
-      titleUrdu: "حفظ ��لقرآن",
+      titleUrdu: "حفظ القرآن",
       description: "Structured memorization program with weekly targets",
       features: ["Proven memorization techniques", "Weekly revision", "One-to-one attention", "Progress monitoring"],
     },
@@ -190,40 +186,45 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen overflow-hidden">
+    <div className="min-h-screen overflow-hidden bg-background">
       <Header />
       <WhatsAppButton />
 
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-primary/80 pt-20 pb-20 md:pt-32 md:pb-32"
+        className="relative overflow-hidden pt-20 pb-20 md:pt-32 md:pb-32"
       >
-        {/* Animated background elements */}
+        {/* Animated gradient background */}
         <motion.div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-violet-900/40 to-gray-900" />
           <img
             src={heroImage}
             alt="Quran"
-            className="hero-image h-full w-full object-cover opacity-15"
+            className="hero-image absolute inset-0 h-full w-full object-cover opacity-10"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary via-primary/50 to-primary" />
         </motion.div>
 
-        {/* Animated background shapes */}
+        {/* Animated background orbs */}
         <motion.div
-          className="absolute top-10 right-10 w-72 h-72 bg-white/5 rounded-full blur-3xl z-0"
-          animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
+          className="absolute top-10 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"
+          animate={{ y: [0, -40, 0], x: [0, 30, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-10 left-10 w-80 h-80 bg-white/5 rounded-full blur-3xl z-0"
-          animate={{ y: [0, 30, 0], x: [0, -20, 0] }}
+          className="absolute bottom-10 left-10 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl"
+          animate={{ y: [0, 30, 0], x: [0, -30, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-1/2 right-1/4 w-80 h-80 bg-pink-500/5 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <div className="container relative z-10 mx-auto px-4">
@@ -235,25 +236,31 @@ const Index = () => {
           >
             {/* Badge */}
             <motion.div variants={itemVariants} className="mb-6 inline-block">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 px-5 py-2.5 hover:bg-white/20 transition-all duration-300">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/70"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white/90"></span>
-                </span>
-                <span className="text-sm font-semibold text-white">Certified Qari & Hafiz</span>
-              </div>
+              <motion.div
+                className="inline-flex items-center gap-2 rounded-full glass px-5 py-2.5 hover:bg-white/10 transition-all duration-300 border border-cyan-500/30 hover:border-cyan-500/60"
+                whileHover={{ boxShadow: "0 0 30px rgba(6, 182, 212, 0.3)" }}
+              >
+                <motion.span
+                  className="relative flex h-2 w-2"
+                  animate={{ scale: [1, 1.3, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-500/70"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+                </motion.span>
+                <span className="text-sm font-semibold text-cyan-400">Certified Qari & Hafiz</span>
+              </motion.div>
             </motion.div>
 
-            {/* Title */}
+            {/* Main Title */}
             <motion.h1
               variants={itemVariants}
-              className="hero-title mb-4 text-5xl md:text-7xl font-black text-white leading-tight tracking-tight"
+              className="hero-title mb-4 text-5xl md:text-7xl font-black leading-tight tracking-tight"
             >
-              <span className="bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent">
+              <span className="text-gradient-primary block mb-2">
                 Qari Muhammad
               </span>
-              <br />
-              <span className="bg-gradient-to-r from-amber-200 via-yellow-200 to-amber-300 bg-clip-text text-transparent">
+              <span className="text-gradient-neon block">
                 Nadeem Majeed
               </span>
             </motion.h1>
@@ -261,7 +268,7 @@ const Index = () => {
             {/* Urdu Subtitle */}
             <motion.p
               variants={itemVariants}
-              className="hero-subtitle font-urdu mb-4 text-3xl md:text-4xl text-white/95"
+              className="hero-subtitle font-urdu mb-6 text-2xl md:text-3xl text-cyan-400"
             >
               قاری محمد ندیم مجید — آپ کا ذاتی قرآن کے استاد
             </motion.p>
@@ -269,7 +276,7 @@ const Index = () => {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="hero-description mb-8 text-lg md:text-xl text-white/85 max-w-2xl mx-auto leading-relaxed"
+              className="hero-description mb-8 text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed"
             >
               One-to-one Quran Nazra, Hifz, Tajweed & Norani Qaida — Personalized online classes for kids and adults with proven results
             </motion.p>
@@ -280,13 +287,13 @@ const Index = () => {
               className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
             >
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(6, 182, 212, 0.5)" }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-primary hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold text-base"
+                  className="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-black font-bold text-base shadow-neon"
                 >
                   <Link to="/booking">
                     <BookOpen className="mr-2 h-5 w-5" />
@@ -302,8 +309,7 @@ const Index = () => {
                 <Button
                   asChild
                   size="lg"
-                  variant="outline"
-                  className="border-white/40 text-white hover:bg-white/10 hover:border-white/60 font-semibold text-base backdrop-blur-sm"
+                  className="glass border-cyan-500/50 text-white hover:border-cyan-400 hover:bg-white/10 font-semibold text-base"
                 >
                   <Link to="/about">
                     Learn More About Me
@@ -320,12 +326,12 @@ const Index = () => {
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className="stat-item rounded-xl bg-white/10 backdrop-blur-md border border-white/15 p-6 text-center hover:bg-white/15 transition-all duration-300"
-                whileHover={{ y: -5 }}
+                className="stat-item glass rounded-xl p-6 text-center border border-cyan-500/20 hover:border-cyan-500/60 hover:bg-white/10 transition-all duration-300"
+                whileHover={{ y: -8, boxShadow: "0 0 30px rgba(6, 182, 212, 0.3)" }}
               >
-                <stat.icon className="mx-auto mb-3 h-8 w-8 text-amber-200" />
-                <p className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</p>
-                <p className="text-sm md:text-base text-white/75">{stat.label}</p>
+                <stat.icon className="mx-auto mb-3 h-8 w-8 text-cyan-400" />
+                <p className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-2">{stat.number}</p>
+                <p className="text-sm md:text-base text-white/70">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -333,7 +339,7 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24 bg-background relative">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -342,10 +348,10 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gradient-primary mb-4">
               Why Choose Us
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-white/70 max-w-2xl mx-auto">
               Comprehensive Quran education with proven methodologies
             </p>
           </motion.div>
@@ -358,21 +364,22 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15, duration: 0.6 }}
-                className="group relative overflow-hidden rounded-xl border border-border/50 p-8 hover:border-primary/50 transition-all duration-300"
+                className="group relative overflow-hidden rounded-2xl glass border border-cyan-500/20 p-8 hover:border-cyan-500/60 hover-glow-cyan transition-all duration-300"
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-violet-500/5 opacity-0 group-hover:opacity-100"
+                  transition={{ duration: 0.3 }}
                   style={{ zIndex: -1 }}
                 />
                 <motion.div
-                  whileHover={{ scale: 1.1, rotate: 10 }}
+                  whileHover={{ scale: 1.15, rotate: 10 }}
                   transition={{ duration: 0.3 }}
-                  className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                  className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500/20 to-violet-500/20 text-cyan-400 group-hover:from-cyan-500 group-hover:to-violet-500 group-hover:text-white transition-all"
                 >
                   <feature.icon className="h-6 w-6" />
                 </motion.div>
-                <h3 className="text-xl font-bold text-foreground mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
+                <p className="text-white/70 leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -380,7 +387,7 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section ref={servicesRef} className="py-16 md:py-24 bg-muted/30">
+      <section ref={servicesRef} className="py-16 md:py-24 bg-gradient-to-b from-background to-violet-950/10">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -389,10 +396,10 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="mb-12 text-center"
           >
-            <h2 className="mb-4 text-3xl md:text-4xl font-bold text-foreground">
+            <h2 className="mb-4 text-3xl md:text-4xl font-bold text-gradient-primary">
               Our Core Services
             </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
+            <p className="mx-auto max-w-2xl text-white/70">
               Comprehensive Quran education tailored to your learning pace and goals
             </p>
           </motion.div>
@@ -412,7 +419,11 @@ const Index = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="mt-12 text-center"
           >
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300">
+            <Button
+              asChild
+              size="lg"
+              className="bg-gradient-to-r from-violet-600 to-cyan-500 hover:shadow-neon text-white font-bold"
+            >
               <Link to="/courses">
                 View All Courses
               </Link>
@@ -422,7 +433,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-muted/50 to-background">
+      <section className="py-16 md:py-24 bg-background relative">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -431,10 +442,10 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="mb-12 text-center"
           >
-            <h2 className="mb-4 text-3xl md:text-4xl font-bold text-foreground">
+            <h2 className="mb-4 text-3xl md:text-4xl font-bold text-gradient-primary">
               Student Success Stories
             </h2>
-            <p className="font-urdu mx-auto max-w-2xl text-xl text-muted-foreground">
+            <p className="font-urdu mx-auto max-w-2xl text-xl text-cyan-400/80">
               طالب علموں کی کامیابی کی کہانیاں
             </p>
           </motion.div>
@@ -452,7 +463,12 @@ const Index = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="mt-12 text-center"
           >
-            <Button asChild size="lg" variant="outline" className="border-primary/30 hover:border-primary hover:bg-primary/5">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="glass border-cyan-500/50 text-white hover:border-cyan-400 hover:bg-white/10"
+            >
               <Link to="/testimonials">
                 Read More Testimonials
               </Link>
@@ -464,15 +480,17 @@ const Index = () => {
       {/* CTA Section */}
       <section className="relative overflow-hidden py-16 md:py-24">
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-primary to-primary/80"
+          className="absolute inset-0"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-        />
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-violet-950 via-gray-900 to-cyan-950" />
+        </motion.div>
 
         {/* Animated background shapes */}
         <motion.div
-          className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"
+          className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"
           animate={{ y: [0, -40, 0], x: [0, 30, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -485,25 +503,31 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             className="mx-auto max-w-3xl"
           >
-            <h2 className="mb-4 text-4xl md:text-5xl font-bold text-white">
+            <motion.div className="mb-6 inline-flex items-center gap-2 text-cyan-400">
+              <Sparkles className="h-5 w-5" />
+              <span className="text-sm font-semibold">Limited Slots Available</span>
+              <Sparkles className="h-5 w-5" />
+            </motion.div>
+
+            <h2 className="mb-4 text-4xl md:text-5xl font-bold text-gradient-primary">
               Start Your Quran Learning Journey Today
             </h2>
-            <p className="font-urdu mb-6 text-xl text-white/90">
+            <p className="font-urdu mb-6 text-xl text-cyan-400/80">
               آج ہی اپنا قرآن سیکھنے کا سفر شروع کریں
             </p>
-            <p className="mb-8 text-lg text-white/80">
+            <p className="mb-8 text-lg text-white/70">
               Book your free trial class and experience personalized Quran education
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(6, 182, 212, 0.5)" }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-primary hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold text-base"
+                  className="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-black font-bold text-base shadow-neon"
                 >
                   <Link to="/booking">
                     Book Free Trial Class
@@ -518,8 +542,7 @@ const Index = () => {
                 <Button
                   asChild
                   size="lg"
-                  variant="outline"
-                  className="border-white/40 text-white hover:bg-white/10 hover:border-white/60 font-semibold text-base backdrop-blur-sm"
+                  className="glass border-cyan-500/50 text-white hover:border-cyan-400 hover:bg-white/10 font-semibold text-base"
                 >
                   <Link to="/contact">Contact Us</Link>
                 </Button>
