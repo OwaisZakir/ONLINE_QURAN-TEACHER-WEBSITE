@@ -11,10 +11,19 @@
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(166, 93, 22, 0.3);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
   }
   50% {
-    box-shadow: 0 0 30px rgba(166, 93, 22, 0.5);
+    box-shadow: 0 0 40px rgba(6, 182, 212, 0.6);
+  }
+}
+
+@keyframes glow-violet {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
   }
 }
 
@@ -100,6 +109,27 @@
   }
 }
 
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes neon-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.4), 0 0 40px rgba(139, 92, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.6), 0 0 60px rgba(139, 92, 246, 0.4);
+  }
+}
+
 /* Utility animation classes */
 .animate-float {
   animation: float 3s ease-in-out infinite;
@@ -109,9 +139,13 @@
   animation: glow 2s ease-in-out infinite;
 }
 
+.animate-glow-violet {
+  animation: glow-violet 2s ease-in-out infinite;
+}
+
 .animate-shimmer {
   animation: shimmer 2s infinite;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   background-size: 1000px 100%;
 }
 
@@ -139,6 +173,10 @@
   animation: scaleIn 0.6s ease-out;
 }
 
+.animate-neon-glow {
+  animation: neon-glow 2s ease-in-out infinite;
+}
+
 /* Smooth transitions */
 .transition-smooth {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -163,7 +201,11 @@
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(166, 93, 22, 0.4);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+}
+
+.hover-glow-intense:hover {
+  box-shadow: 0 0 40px rgba(6, 182, 212, 0.6), 0 0 80px rgba(139, 92, 246, 0.4);
 }
 
 /* Responsive animations */
@@ -191,4 +233,83 @@
 
 .scroll-slide-in.visible {
   animation: slideInUp 0.6s ease-out forwards;
+}
+
+/* Modern gradient background animation */
+.bg-gradient-animate {
+  background-size: 200% 200%;
+  animation: gradient-animation 6s ease infinite;
+}
+
+/* Neon effect for text and elements */
+.text-neon {
+  color: #06b6d4;
+  text-shadow: 0 0 10px rgba(6, 182, 212, 0.5), 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.text-neon:hover {
+  text-shadow: 0 0 20px rgba(6, 182, 212, 0.8), 0 0 40px rgba(139, 92, 246, 0.5);
+}
+
+/* Backdrop blur and glass effects */
+.glass-effect {
+  @apply glass;
+}
+
+/* Shadow utilities */
+.shadow-neon {
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.4), 0 0 60px rgba(6, 182, 212, 0.2);
+}
+
+.shadow-neon-lg {
+  box-shadow: 0 0 40px rgba(6, 182, 212, 0.5), 0 0 80px rgba(6, 182, 212, 0.3);
+}
+
+.shadow-glow-primary {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.4), 0 0 60px rgba(139, 92, 246, 0.2);
+}
+
+/* Border glow */
+.border-glow {
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #06b6d4, #8b5cf6) 1;
+  box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.1), 0 0 20px rgba(6, 182, 212, 0.2);
+}
+
+/* Loading animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Pulsing dots */
+@keyframes pulse-dot {
+  0%, 20%, 50%, 80%, 100% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 0.3;
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+/* Responsive typography enhancements */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
 }
