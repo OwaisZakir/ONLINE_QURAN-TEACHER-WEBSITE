@@ -29,15 +29,15 @@ const ServiceCard = ({ icon: Icon, title, titleUrdu, description, features, inde
 
   const hoverVariants = {
     hover: {
-      y: -8,
-      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
+      y: -12,
+      boxShadow: "0 0 40px rgba(6, 182, 212, 0.3), 0 0 80px rgba(139, 92, 246, 0.2)",
       transition: { duration: 0.3 },
     },
   };
 
   const iconVariants = {
     hover: {
-      scale: 1.15,
+      scale: 1.2,
       rotate: 5,
       transition: { duration: 0.3 },
     },
@@ -53,32 +53,32 @@ const ServiceCard = ({ icon: Icon, title, titleUrdu, description, features, inde
       className="group h-full"
     >
       <motion.div variants={hoverVariants} className="h-full">
-        <Card className="relative h-full overflow-hidden border-2 border-border transition-all duration-300 hover:border-primary/50">
-          {/* Animated gradient background on hover */}
+        <Card className="relative h-full overflow-hidden glass border-cyan-500/30 group-hover:border-cyan-400/60 transition-all duration-300">
+          {/* Gradient overlay on hover */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/0 opacity-0"
+            className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-violet-500/5 opacity-0 group-hover:opacity-100"
             whileHover={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            style={{ zIndex: -1 }}
+            style={{ zIndex: 0 }}
           />
 
-          <CardHeader>
+          <CardHeader className="relative z-10">
             <motion.div
               variants={iconVariants}
               whileHover="hover"
-              className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 text-primary shadow-md transition-all duration-300 group-hover:from-primary group-hover:to-primary/80 group-hover:text-primary-foreground"
+              className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500/20 to-violet-500/20 text-cyan-400 shadow-md group-hover:from-cyan-500 group-hover:to-violet-500 group-hover:text-white transition-all duration-300"
             >
               <Icon className="h-7 w-7" />
             </motion.div>
 
-            <CardTitle className="text-xl font-bold">{title}</CardTitle>
-            <CardDescription className="font-urdu text-base text-muted-foreground">
+            <CardTitle className="text-xl font-bold text-white">{title}</CardTitle>
+            <CardDescription className="font-urdu text-base text-cyan-400/80">
               {titleUrdu}
             </CardDescription>
           </CardHeader>
 
-          <CardContent className="space-y-4">
-            <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
+          <CardContent className="relative z-10 space-y-4">
+            <p className="text-sm leading-relaxed text-white/80">{description}</p>
 
             <ul className="space-y-2.5">
               {features.map((feature, idx) => (
@@ -90,10 +90,10 @@ const ServiceCard = ({ icon: Icon, title, titleUrdu, description, features, inde
                   className="flex items-start gap-3 text-sm"
                 >
                   <motion.span
-                    className="mt-1.5 h-2 w-2 rounded-full bg-primary flex-shrink-0"
+                    className="mt-1.5 h-2 w-2 rounded-full bg-gradient-to-r from-cyan-400 to-violet-400 flex-shrink-0"
                     whileHover={{ scale: 1.5 }}
                   />
-                  <span className="text-muted-foreground">{feature}</span>
+                  <span className="text-white/70">{feature}</span>
                 </motion.li>
               ))}
             </ul>
@@ -104,8 +104,7 @@ const ServiceCard = ({ icon: Icon, title, titleUrdu, description, features, inde
             >
               <Button
                 asChild
-                variant="outline"
-                className="w-full border-primary/30 transition-all duration-300 hover:border-primary hover:bg-primary/5"
+                className="w-full bg-gradient-to-r from-cyan-500/80 to-violet-500/80 hover:from-cyan-500 hover:to-violet-500 text-white font-semibold border-0 transition-all duration-300"
               >
                 <Link to="/courses">
                   Learn More
