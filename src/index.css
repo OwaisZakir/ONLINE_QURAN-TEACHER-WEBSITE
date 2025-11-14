@@ -106,9 +106,33 @@ All colors MUST be HSL.
   }
   
   /* Urdu font for Urdu text */
-  [lang="ur"], .urdu-text {
+  [lang="ur"], .urdu-text, .font-urdu {
     font-family: 'Noto Nastaliq Urdu', 'Arial', sans-serif;
     direction: ltr;
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
   }
 }
 
@@ -142,5 +166,97 @@ All colors MUST be HSL.
     background-image: 
       radial-gradient(circle at 25% 25%, hsl(47 69% 53% / 0.03) 0%, transparent 50%),
       radial-gradient(circle at 75% 75%, hsl(166 93% 22% / 0.03) 0%, transparent 50%);
+  }
+
+  /* Modern gradient utilities */
+  .bg-gradient-to-br-gold {
+    @apply bg-gradient-to-br from-amber-400/20 to-transparent;
+  }
+
+  .bg-gradient-to-tr-primary {
+    @apply bg-gradient-to-tr from-primary/10 to-transparent;
+  }
+
+  /* Enhanced text utilities */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent;
+  }
+
+  /* Backdrop utilities */
+  .backdrop-blur-lg {
+    @apply backdrop-blur-lg;
+  }
+
+  /* Modern shadow utilities */
+  .shadow-modern {
+    @apply shadow-lg hover:shadow-2xl transition-shadow;
+  }
+
+  .shadow-soft {
+    box-shadow: 0 4px 6px -1px hsl(0 0% 0% / 0.05);
+  }
+
+  .shadow-medium {
+    box-shadow: 0 10px 15px -3px hsl(0 0% 0% / 0.1);
+  }
+
+  /* Border utilities */
+  .border-gradient {
+    border-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--gold))) 1;
+  }
+
+  /* Animation utilities - already in App.css but available here */
+  .animate-float {
+    @apply duration-300;
+  }
+}
+
+/* Global scroll animations */
+@supports (animation-timeline: view()) {
+  .scroll-animate {
+    animation: slideInUp linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+}
+
+/* Smooth fade-in for page transitions */
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Responsive typography enhancements */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
   }
 }
