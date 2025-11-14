@@ -2,95 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Modern Design System with vibrant, eye-catching colors */
+/* Islamic Color System - Modern & Advanced */
 
 @layer base {
   :root {
-    /* Modern Dark Background */
-    --background: 15 25% 6%;
-    --foreground: 0 0% 98%;
+    /* Premium Dark Background */
+    --background: 200 30% 8%;
+    --foreground: 0 0% 96%;
 
-    --card: 20 20% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 200 25% 12%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 20 20% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 200 25% 12%;
+    --popover-foreground: 0 0% 96%;
 
-    /* Premium Gradient Accents */
-    --primary: 280 100% 56%;
+    /* Islamic Emerald Green - Primary */
+    --primary: 166 85% 28%;
     --primary-foreground: 0 0% 100%;
     
-    --primary-hover: 260 100% 50%;
+    --primary-hover: 166 80% 35%;
     
-    /* Vibrant Cyan/Teal Accent */
-    --gold: 180 100% 42%;
+    /* Islamic Gold - Accent */
+    --gold: 38 90% 50%;
     --gold-foreground: 0 0% 12%;
 
-    /* Hot Pink Secondary */
-    --secondary: 320 95% 55%;
+    /* Navy Blue - Secondary */
+    --secondary: 200 50% 20%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 20 10% 25%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 200 15% 28%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 180 100% 42%;
+    --accent: 38 90% 50%;
     --accent-foreground: 0 0% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 20 15% 20%;
-    --input: 20 15% 20%;
-    --ring: 280 100% 56%;
+    --border: 200 20% 20%;
+    --input: 200 20% 20%;
+    --ring: 166 85% 28%;
 
-    --radius: 1rem;
+    --radius: 1.2rem;
 
-    /* Modern Gradients */
-    --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #06b6d4 100%);
-    --gradient-gold: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
-    --gradient-hero: linear-gradient(135deg, #1a1f2e 0%, #2d1b69 50%, #1a2b4a 100%);
-    --gradient-accent: linear-gradient(135deg, #ff006e 0%, #8b5cf6 50%, #00d9ff 100%);
+    /* Islamic Gradients */
+    --gradient-primary: linear-gradient(135deg, #1b7c4e 0%, #10a454 50%, #0d8e45 100%);
+    --gradient-gold: linear-gradient(135deg, #d4a65a 0%, #f0c674 50%, #e0b55f 100%);
+    --gradient-hero: linear-gradient(135deg, #0a1929 0%, #1b3a4b 50%, #0f1b2e 100%);
+    --gradient-accent: linear-gradient(135deg, #10a454 0%, #d4a65a 50%, #10a454 100%);
+    --gradient-premium: linear-gradient(180deg, rgba(27, 124, 78, 0.1) 0%, rgba(212, 166, 90, 0.05) 100%);
     
-    --shadow-elegant: 0 20px 60px -10px rgba(139, 92, 246, 0.3);
-    --shadow-gold: 0 8px 32px rgba(6, 182, 212, 0.3);
-    --shadow-neon: 0 0 40px rgba(6, 182, 212, 0.4);
+    --shadow-elegant: 0 20px 60px -10px rgba(27, 124, 78, 0.25);
+    --shadow-gold: 0 8px 32px rgba(212, 166, 90, 0.35);
+    --shadow-neon: 0 0 40px rgba(16, 164, 84, 0.4);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 15 25% 6%;
-    --foreground: 0 0% 98%;
+    --background: 200 30% 8%;
+    --foreground: 0 0% 96%;
 
-    --card: 20 20% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 200 25% 12%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 20 20% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 200 25% 12%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 280 100% 56%;
+    --primary: 166 85% 28%;
     --primary-foreground: 0 0% 100%;
     
-    --primary-hover: 260 100% 50%;
+    --primary-hover: 166 80% 35%;
     
-    --gold: 180 100% 42%;
+    --gold: 38 90% 50%;
     --gold-foreground: 0 0% 12%;
 
-    --secondary: 320 95% 55%;
+    --secondary: 200 50% 20%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 20 10% 25%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 200 15% 28%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 180 100% 42%;
+    --accent: 38 90% 50%;
     --accent-foreground: 0 0% 12%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 20 15% 20%;
-    --input: 20 15% 20%;
-    --ring: 280 100% 56%;
+    --border: 200 20% 20%;
+    --input: 200 20% 20%;
+    --ring: 166 85% 28%;
   }
 }
 
@@ -115,7 +116,7 @@
     scroll-behavior: smooth;
   }
 
-  /* Custom scrollbar */
+  /* Custom scrollbar with Islamic colors */
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -126,17 +127,17 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, hsl(280 100% 56%), hsl(180 100% 42%));
+    background: linear-gradient(180deg, hsl(166 85% 28%), hsl(38 90% 50%));
     border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, hsl(280 100% 60%), hsl(180 100% 50%));
+    background: linear-gradient(180deg, hsl(166 85% 35%), hsl(38 90% 60%));
   }
 }
 
 @layer utilities {
-  /* Modern Gradients */
+  /* Islamic Gradients */
   .gradient-primary {
     background: var(--gradient-primary);
   }
@@ -152,6 +153,10 @@
   .gradient-accent {
     background: var(--gradient-accent);
   }
+
+  .gradient-premium {
+    background: var(--gradient-premium);
+  }
   
   /* Modern Shadows */
   .shadow-elegant {
@@ -164,7 +169,7 @@
 
   .shadow-neon {
     box-shadow: var(--shadow-neon);
-    border: 1px solid rgba(6, 182, 212, 0.3);
+    border: 1px solid rgba(16, 164, 84, 0.3);
   }
   
   .transition-smooth {
@@ -173,20 +178,24 @@
   
   /* Modern gradient backgrounds */
   .bg-gradient-modern {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(27, 124, 78, 0.1) 0%, rgba(212, 166, 90, 0.1) 100%);
   }
 
-  .bg-gradient-neon {
-    background: linear-gradient(135deg, rgba(255, 0, 110, 0.1) 0%, rgba(139, 92, 246, 0.1) 50%, rgba(0, 217, 255, 0.1) 100%);
+  .bg-gradient-premium {
+    background: linear-gradient(135deg, rgba(27, 124, 78, 0.05) 0%, rgba(212, 166, 90, 0.05) 100%);
   }
 
   /* Text Gradients */
   .text-gradient-primary {
-    @apply bg-gradient-to-r from-violet-500 via-pink-500 to-cyan-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 bg-clip-text text-transparent;
   }
 
-  .text-gradient-neon {
-    @apply bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent;
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-500 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-premium {
+    @apply bg-gradient-to-r from-emerald-400 via-amber-400 to-emerald-500 bg-clip-text text-transparent;
   }
 
   /* Glassmorphism */
@@ -200,29 +209,33 @@
 
   /* Modern Borders */
   .border-gradient {
-    border-image: linear-gradient(135deg, hsl(280 100% 56%), hsl(180 100% 42%)) 1;
+    border-image: linear-gradient(135deg, hsl(166 85% 28%), hsl(38 90% 50%)) 1;
   }
 
-  /* Glow Effects */
-  .glow-primary {
-    box-shadow: 0 0 30px rgba(139, 92, 246, 0.4), 0 0 60px rgba(139, 92, 246, 0.2);
+  /* Glow Effects - Islamic Green */
+  .glow-emerald {
+    box-shadow: 0 0 30px rgba(16, 164, 84, 0.4), 0 0 60px rgba(16, 164, 84, 0.2);
   }
 
-  .glow-cyan {
-    box-shadow: 0 0 30px rgba(6, 182, 212, 0.4), 0 0 60px rgba(6, 182, 212, 0.2);
+  .glow-gold {
+    box-shadow: 0 0 30px rgba(212, 166, 90, 0.4), 0 0 60px rgba(212, 166, 90, 0.2);
   }
 
-  .glow-pink {
-    box-shadow: 0 0 30px rgba(236, 72, 153, 0.4), 0 0 60px rgba(236, 72, 153, 0.2);
+  .glow-premium {
+    box-shadow: 0 0 30px rgba(16, 164, 84, 0.3), 0 0 40px rgba(212, 166, 90, 0.2);
   }
 
   /* Hover Glow */
-  .hover-glow-primary:hover {
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.5), 0 0 80px rgba(139, 92, 246, 0.3);
+  .hover-glow-emerald:hover {
+    box-shadow: 0 0 40px rgba(16, 164, 84, 0.5), 0 0 80px rgba(16, 164, 84, 0.3);
   }
 
-  .hover-glow-cyan:hover {
-    box-shadow: 0 0 40px rgba(6, 182, 212, 0.5), 0 0 80px rgba(6, 182, 212, 0.3);
+  .hover-glow-gold:hover {
+    box-shadow: 0 0 40px rgba(212, 166, 90, 0.5), 0 0 80px rgba(212, 166, 90, 0.3);
+  }
+
+  .hover-glow-premium:hover {
+    box-shadow: 0 0 40px rgba(16, 164, 84, 0.4), 0 0 50px rgba(212, 166, 90, 0.3);
   }
 
   /* Backdrop Blur */
@@ -241,6 +254,15 @@
 
   .shadow-medium {
     box-shadow: 0 10px 15px -3px hsl(0 0% 0% / 0.3);
+  }
+
+  /* Premium accent text */
+  .text-accent-gold {
+    @apply text-amber-400;
+  }
+
+  .text-accent-emerald {
+    @apply text-emerald-400;
   }
 }
 
@@ -276,10 +298,19 @@
 
 @keyframes glow-pulse {
   0%, 100% {
-    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
+    filter: drop-shadow(0 0 20px rgba(16, 164, 84, 0.3));
   }
   50% {
-    filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.6));
+    filter: drop-shadow(0 0 40px rgba(16, 164, 84, 0.6));
+  }
+}
+
+@keyframes glow-pulse-gold {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(212, 166, 90, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(212, 166, 90, 0.6));
   }
 }
 
@@ -303,16 +334,13 @@ html {
   animation: glow-pulse 2s ease-in-out infinite;
 }
 
+.animate-glow-pulse-gold {
+  animation: glow-pulse-gold 2s ease-in-out infinite;
+}
+
 .animate-gradient-shift {
   animation: gradient-shift 4s ease infinite;
   background-size: 200% 200%;
-}
-
-/* Responsive typography enhancements */
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
 }
 
 /* Reduce motion support */
